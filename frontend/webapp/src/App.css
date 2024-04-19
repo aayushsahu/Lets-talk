@@ -1,38 +1,141 @@
-.App {
+html {
+  font-size: 1rem;
+  font-family: monospace;
+  /* background: linear-gradient(0deg, rgb(253, 31, 31), rgb(255, 241, 50)); */
+  user-select: none;
+  backdrop-filter: blur(10px) saturate(100%)
+}
+
+/* .profile {
+  width: 4rem;
+  height: 4rem;
+  background-color: antiquewhite;
+  border-radius: 1rem;
   text-align: center;
+  margin: auto;
+  padding: 0.3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.profile:hover {
+  box-shadow: #44434334 10px 10px 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.profile-name {
+  display: block;
+  font-size: 0.6rem;
+  font-family: Georgia;
+  color: gray;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile-pic {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+.contact {
+  display: block;
+  color: gray;
+  font-size: 0.3rem;
+} */
+
+.topbar {
+  background-color: red;
+  font-size: 0.6rem;
+}
+
+.topbar-section {
+  display: inline-flex;
+}
+
+.form {
+  display: inline;
+}
+
+.login-container-logo {
+  float: left;
+  width: 50%;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.login-container {
+  float: right;
+  width: 50%;
+  height: 100vh;
+  background: url('./resources/sunset.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  padding: 1rem;
+  width: 70%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  animation-name: glass;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  border-radius: 12px;
+  border: 1px solid rgba(22, 22, 22, 0.125);
 }
 
-.App-link {
-  color: #61dafb;
+.signup-container {
+  float: right;
+  width: 50%;
+  height: 100vh;
+  background: url('./resources/sunset.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.signup-form {
+  padding: 1rem;
+  width: 70%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: glass;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  border-radius: 12px;
+  border: 1px solid rgba(22, 22, 22, 0.125);
+}
+
+@keyframes glass{
+  0% {
+    backdrop-filter: blur(10px) saturate(100%);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    backdrop-filter: none;
   }
+  100% {
+    backdrop-filter: blur(10px) saturate(100%);
+  }
+}
+
+.inp {
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.login-button {
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  margin-right: 4rem;
+  width: 100%;
+  padding: 0.6rem;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
 }
