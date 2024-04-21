@@ -5,4 +5,4 @@ start-backend:
 	cd backend && npm start
 
 
-#start: start-app start-backend
+start: start-app start-backend

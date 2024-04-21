@@ -4,10 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 
-const MyNav = () => {
+const MyNav = ({user}) => {
     return (<Navbar expand="lg" className="bg-body-primary me-auto">
         <Container>
-            <Navbar.Brand href='#home'>Devangshi</Navbar.Brand>
+            <Navbar.Brand href='/home'>{user.toUpperCase()}</Navbar.Brand>
             <Navbar.Toggle href='#home'>Toggle</Navbar.Toggle>
             <Navbar.Collapse href='#home'>
                 <Nav.Link href='#home'>Home</Nav.Link>

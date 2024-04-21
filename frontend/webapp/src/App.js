@@ -1,14 +1,21 @@
-import React from 'react';
-import { Route, BrowserRouter, Navigate, Routes } from 'react-router-dom';
+import React, {memo} from 'react';
+import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
+import { persistQueryClient } from "react-query/persistQueryClient-experimental";
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import Home from './components/Home';
 import { QueryClient, QueryClientProvider } from 'react-query';
 //import { useState } from 'react';
 
 const queryClient = new QueryClient();
 
-function App() {
+persistQueryClient({
+  queryClient,
+  persistor: createWebStoragePersistor({ storage: window.localStorage }),
+});
+
+const App = memo(() => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   /* const handleLogin = () => {
@@ -57,7 +64,7 @@ function App() {
         </Routes>
       </BrowserRouter> 
   );
-}
+});
 
 const WrappedApp = () => (
   <QueryClientProvider client={queryClient}>

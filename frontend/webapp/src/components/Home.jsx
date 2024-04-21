@@ -1,40 +1,36 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import MyNav from './MyNav';
 
-var token;
-
-const checkAuthStatus = async () => {
-  console.log("TOKEN IN HOME: ", token);
-  const response = await fetch('http://localhost:7007/api/auth/status', {
-    method: 'GET',
-    headers: {
-      'Authorization' : token
-    }
-  });
-  return await response.json();;
-}; 
-
-const Home = () => {
-  const { data: authenticationStatusResponse, isLoading, isError } = useQuery('user', checkAuthStatus);
+const Home = memo(() => {
+  const checkAuthStatus = async () => {
+    console.log("TOKEN IN HOME: ", token);
+    const response = await fetch('http://localhost:7007/api/auth/status', {
+      method: 'GET',
+      headers: {
+        'Authorization' : token
+      }
+    });
+    if(response.ok)
+      return await response.json();
+    throw new Error("Failed to check authentication status");
+  }; 
   
-  // To get all the keys in query cache
-  // const queryKeys = useQueryClient().getQueryCache().getAll().map(cache => cache.queryKey);
-  // console.log("KEY: ", queryKeys);
-  // console.log("KEY exists: ", queryKeys.indexOf('user'));
-  // console.log("Value: ", useQueryClient().getQueryCache().getAll());
-  token = useQueryClient().getQueryData();
-  console.log("TOKEN IN HOME: ", token);
-  console.log("Authenticated or not", authenticationStatusResponse);
+  const { data: authenticationStatusResponse, isLoading, isError } = useQuery('auth', checkAuthStatus);
+  const token = useQueryClient().getQueryData('user');
+
+  const auth = useQueryClient().getQueryData('auth');
+
   if (isLoading) return <div>Loading...</div>;
   if (isError || !authenticationStatusResponse || !authenticationStatusResponse.loginStatus ) return <div>Not authenticated</div>;
 
   return (
-    <>
-      <MyNav />
-      <div>HELLO WORLD</div>
-    </>
+    <article style={{backgroundColor: 'rgb(130, 22, 159)', minHeight: '100vh'}}>
+      <MyNav user={ auth.emailId } />
+      <div className='card' style={{padding: '1%'}}> HELLO WORLD</div>
+      
+    </article>
   );
-}
+});
 
 export default Home;

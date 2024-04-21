@@ -24,20 +24,15 @@ const logout = async () => {};
 const useAuthentication = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  //const { enqueueSnackbar } = useSnackbar();
 
   const { mutate: loginMutation, isLoading: isLoggingIn } = useMutation(login, {
     onSuccess: (data) => {
       console.log('logging data from useAuthentication hook onSuccess', JSON.stringify(data));
       queryClient.setQueryData('user', data.token);
-      console.log("Value YYY: ", queryClient.getQueryData());
       navigate('/home');
     },
     onError: (error) => {
       console.log('logging data from useAuthentication hook onError', JSON.stringify(error.errorMessage));
-      // enqueueSnackbar('Ops.. Error on sign in. Try again!', {
-      //   variant: 'error'
-      // });
       navigate('');
     }
   });
@@ -50,9 +45,6 @@ const useAuthentication = () => {
     },
     onError: (error) => {
       console.log('logging data from useAuthentication hook onError', JSON.stringify(error));
-      // enqueueSnackbar('Ops.. Error on signing out. Try again!', {
-      //   variant: 'error'
-      // });
       navigate('/home');
     }
   });
