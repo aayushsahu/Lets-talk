@@ -12,7 +12,6 @@ const LoginFormComponent = memo((/* {email, password, submitFn, isLoggingIn, han
         console.log(`Email: ${email} Password: ${password}`);
         event.preventDefault();
         try {
-            console.log(`Email: ${email} Password: ${password}`);
             const resp = login({ email, password });
             console.log(`submitHandler from Login component ${JSON.stringify(resp)}`);
         } catch (error) {

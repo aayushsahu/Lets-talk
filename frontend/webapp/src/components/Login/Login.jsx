@@ -1,8 +1,8 @@
-import React, {memo} from 'react';
+import React from 'react';
 import LoginFormComponent from './FormComponent/LoginFormComponent';
 import logo from './../../resources/lotus-logo.png';
 
-const Login = memo(() => {
+const Login = () => {
   console.log('When Login Component gets rendered');
   return (
     <>
@@ -15,6 +15,6 @@ const Login = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default Login;

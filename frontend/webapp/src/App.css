@@ -6,39 +6,6 @@ html {
   backdrop-filter: blur(10px) saturate(100%)
 }
 
-/* .profile {
-  width: 4rem;
-  height: 4rem;
-  background-color: antiquewhite;
-  border-radius: 1rem;
-  text-align: center;
-  margin: auto;
-  padding: 0.3rem;
-}
-
-.profile:hover {
-  box-shadow: #44434334 10px 10px 3px;
-}
-
-.profile-name {
-  display: block;
-  font-size: 0.6rem;
-  font-family: Georgia;
-  color: gray;
-}
-
-.profile-pic {
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
-}
-
-.contact {
-  display: block;
-  color: gray;
-  font-size: 0.3rem;
-} */
-
 .topbar {
   background-color: red;
   font-size: 0.6rem;

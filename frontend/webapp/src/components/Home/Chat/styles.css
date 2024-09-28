@@ -1,0 +1,32 @@
+.profile {
+  width: 8rem;
+  height: 8rem;
+  background-color: antiquewhite;
+  border-radius: 1rem;
+  text-align: center;
+  margin: auto;
+}
+
+.profile:hover {
+  box-shadow: #44434334 10px 10px 3px;
+}
+
+.profile-name {
+  display: block;
+  font-size: 0.6rem;
+  font-family: Georgia;
+  color: gray;
+}
+
+.profile-pic {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.contact {
+  display: block;
+  color: gray;
+  font-size: 1rem;
+}
