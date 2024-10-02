@@ -22,7 +22,7 @@ app.get("/hello", verifyToken, (req, resp) => {
   resp.send({ message: "Hello world" });
 });
 
-app.post("/v1/api/login", async (req, resp) => {
+app.post("/api/v1/login", async (req, resp) => {
   console.log(`inside /v1/api/login`);
   console.log(`BODY: ${JSON.stringify(req.body)}`);
   const request =  req;
