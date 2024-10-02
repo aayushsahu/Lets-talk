@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename); // get the name of the directory
 
 export default {
     target: "node",
-    entry: "./db.js", // Specify the entry point of your application
+    entry: "./app.js", // Specify the entry point of your application
     output: {
         filename: "main.js", // Output bundled file
         path: path.resolve(__dirname, "dist"), // Output directory
