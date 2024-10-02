@@ -6,20 +6,20 @@
   "license": "ISC",
   "description": "backend for frontend",
   "type": "module",
-  "dependencies": {
-    "@letstalk/db-service": "file:../db-script",
-    "cors": "^2.8.5",
-    "express": "^4.18.3",
-    "jsonwebtoken": "^9.0.2",
-    "webpack-node-externals": "^3.0.0",
-    "winston": "^3.13.0"
-  },
   "scripts": {
     "start": "nodemon app.js",
     "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@letstalk/db-service": "file:../db-script",
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.13.0"
+  },
   "devDependencies": {
+    "webpack-node-externals": "^3.0.0",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "babel-loader": "^9.2.1",
