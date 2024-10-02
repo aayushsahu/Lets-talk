@@ -7,14 +7,14 @@
   "description": "backend for frontend",
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^2.43.4",
+    "@letstalk/db-service": "file:../db-script",
     "cors": "^2.8.5",
     "express": "^4.18.3",
     "jsonwebtoken": "^9.0.2",
     "winston": "^3.13.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

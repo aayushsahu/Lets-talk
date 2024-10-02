@@ -2,7 +2,7 @@ import express from "express";
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { generateToken, verifyToken } from "./services/jwt.js";
-// import { checkCredentials } from "./services/DBHandler.js";
+import {userService}  from "./services/users.js"
 
 const app = express();
 const port = 7007;
@@ -13,23 +13,25 @@ app.use(bodyParser.json())
 //app.use(bodyParser);
 app.use(cors());
 
+
+app.get("/getToken", (req,res) => {
+  res.send({token: generateToken(req?.body?.email)});
+})
 app.get("/hello", verifyToken, (req, resp) => {
   console.log('hello');
   resp.send({ message: "Hello world" });
 });
 
-app.post("/api/login", async (req, resp) => {
-  console.log(`inside /api/login`);
+app.post("/v1/api/login", async (req, resp) => {
+  console.log(`inside /v1/api/login`);
   console.log(`BODY: ${JSON.stringify(req.body)}`);
   const request =  req;
   const email = request?.body?.email;
   const password = request?.body?.password;
-  if(email && password && email === 'aayush@123' && password === 'aayush@696969') {
-  //if(email && password && await checkCredentials(email, password)) {
-    console.log("Success");
-    const token = generateToken(email); //token service will generate the token here
-    loginStatus = true;
-    resp.status(200).json({ loginStatus, token });
+  if(email && password && await userService.login(email, password)) {
+      const token = generateToken(email); //token service will generate the token here
+      loginStatus = true;
+      resp.status(200).json({ loginStatus, token });
   }
   else {
     console.log("failure");

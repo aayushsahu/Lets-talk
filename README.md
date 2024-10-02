@@ -30,6 +30,24 @@ Important link for [Knex](https://devhints.io/knex)
 ```bash
 cd db-script
 knex migrate:make <users>
-knex migrate:latest --migrations-directory ./migrations
+knex migrate:latest --migrations-directory ./migrations/ --knexfile ./knexfile.js
 
 ```
+UP:
+//for running FE
+make start-app
+
+//for data setup
+make db-start
+cd db-script 
+npm run build
+knex migrate:latest --migrations-directory ./migrations/ --knexfile ./knexfile.js
+
+//for running backend
+make start-backend
+
+
+DOWN:
+//for removing database and data
+make db-remove
+docker volume rm pgdata

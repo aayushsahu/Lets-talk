@@ -1,6 +1,26 @@
 {
+  "name": "@letstalk/db-service",
+  "version": "1.0.0",
+  "main": "db.js",
+  "type": "module",
+  "compilerOptions": "ESNext",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "knex": "^3.1.0",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.2.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }

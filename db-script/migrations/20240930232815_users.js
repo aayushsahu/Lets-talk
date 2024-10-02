@@ -1,20 +1,12 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = async (knex) => {
-    knex.schema.createTable('users', table => {
+export function up(knex) {
+    return knex.schema.createTable('users', table => {
         table.uuid('id').unique().notNullable().defaultTo(knex.fn.uuid());
         table.string('email').primary().notNullable();
         table.string('password').notNullable();
-        table.string('created_on').notNullable().defaultTo(knex.fn.now());
+        table.timestamps(true, true);
     });
 };
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.down = async (knex) => {
-  knex.schema.dropSchemaIfExists('users');
+export function down(knex) {
+  return knex.schema.dropTable('users');
 };
