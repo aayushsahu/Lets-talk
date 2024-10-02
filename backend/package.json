@@ -8,8 +8,10 @@
   "type": "module",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:server": "npm run build:server:once && npm-run-all --parallel nodemon:prod watch:server",
+    "build:server:once": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "watch:server": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch",
+    "nodemon:prod": "cross-env NODE_ENV=development node-dev app.js"
   },
   "dependencies": {
     "@letstalk/db-service": "file:../db-script",
@@ -19,12 +21,14 @@
     "winston": "^3.13.0"
   },
   "devDependencies": {
-    "webpack-node-externals": "^3.0.0",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "babel-loader": "^9.2.1",
+    "node-dev": "^8.0.0",
     "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5",
     "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }

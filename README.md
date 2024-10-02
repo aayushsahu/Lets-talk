@@ -33,21 +33,32 @@ knex migrate:make <users>
 knex migrate:latest --migrations-directory ./migrations/ --knexfile ./knexfile.js
 
 ```
-UP:
-//for running FE
-make start-app
+## UP:
+### for running FE
+`make start-app`
 
-//for data setup
+### for data setup
+```bash
 make db-start
 cd db-script 
 npm run build
 knex migrate:latest --migrations-directory ./migrations/ --knexfile ./knexfile.js
+```
 
-//for running backend
-make start-backend
+### for running backend
+`make start-backend`
 
 
-DOWN:
-//for removing database and data
+## DOWN:
+### for removing database and data
+```bash
 make db-remove
 docker volume rm pgdata
+```
+## HMR for faster builds
+### Changes related to HMR are influenced from below blog
+https://csotiriou.medium.com/speed-up-nodejs-server-side-development-with-webpack-4-hmr-8b99a932bdda
+### dependencies used
+npm-run-all - *A CLI tool to run multiple npm-scripts in parallel or sequential.*
+node-dev - *Node-dev is a development tool for Node.js that automatically restarts the node process when a file is modified. In contrast to tools like supervisor or nodemon it doesn't scan the filesystem for files to be watched. Instead it hooks into Node's require() function to watch only the files that have been actually required..*
+cross-env - *cross-env makes it so you can have a single command without worrying about setting or using the environment variable properly for the platform. Just set it like you would if it's running on a POSIX system, and cross-env will take care of setting it properly.*

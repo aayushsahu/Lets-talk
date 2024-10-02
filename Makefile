@@ -2,7 +2,7 @@ start-app:
 	cd frontend/webapp && npm start
 
 start-backend:
-	cd backend && npm start
+	cd backend && npm run dev:server
 
 
 start: start-app start-backend
