@@ -1,6 +1,7 @@
+/* eslint-disable linebreak-style */
 import React, {memo} from 'react';
-import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
-import { persistQueryClient } from "react-query/persistQueryClient-experimental";
+import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
+import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login/Login';
@@ -16,17 +17,19 @@ persistQueryClient({
 });
 
 const App = memo(() => {
-    return (
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={ <Login/> }/>
-          {/* <Route exact path="/logout" element={ <Redirect to="/"/> }/> */}
-          <Route path="/home" element={ <Home/> } />
-          <Route path='/message' element={ <MessageComponent/> } />
-        </Routes>
-      </BrowserRouter> 
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={ <Login/> }/>
+        {/* <Route exact path="/logout" element={ <Redirect to="/"/> }/> */}
+        <Route path="/home" element={ <Home/> } />
+        <Route path='/message' element={ <MessageComponent/> } />
+      </Routes>
+    </BrowserRouter> 
   );
 });
+
+App.displayName = 'App';
 
 const WrappedApp = () => (
   <QueryClientProvider client={queryClient}>

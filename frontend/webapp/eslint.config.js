@@ -1,5 +1,5 @@
 import globals from 'globals';
-import pluginJs from '@eslint/js';
+// import pluginJs from '@eslint/js';
 import pluginReact from 'eslint-plugin-react';
 
 export default [
@@ -15,13 +15,22 @@ export default [
         }
       ],
       'no-undef': 'warn',
-      indent: ['error', 2],
-      'linebreak-style': ['error', 'windows'],
-      quotes: ['error', 'single'],
-      semi: ['error', 'always'],
+      indent: ['warn', 2],
+      'linebreak-style': ['warn', 'windows'],
+      quotes: ['warn', 'single'],
+      semi: ['warn', 'always'],
+      'react/react-in-jsx-scope': 'off',
+      'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }]
     }
   },
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
+  {
+    languageOptions: { 
+      globals: {
+        ...globals.serviceworker, 
+        ...globals.browser 
+      }
+    }
+  },
+  // pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
 ];

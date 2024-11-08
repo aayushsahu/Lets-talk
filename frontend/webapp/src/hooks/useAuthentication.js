@@ -41,7 +41,7 @@ const useAuthentication = () => {
       
       console.log('logging data from useAuthentication hook onSuccess', JSON.stringify(data));
       queryClient.setQueryData('user', null);
-      navigate('/')
+      navigate('/');
     },
     onError: (error) => {
       console.log('logging data from useAuthentication hook onError', JSON.stringify(error));

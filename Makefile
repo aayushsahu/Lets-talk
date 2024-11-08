@@ -17,3 +17,9 @@ db-remove:
 	REMOVE=true bash ./scripts/stop-pg.sh
 db-stop:
 	bash ./scripts/stop-pg.sh
+
+eslint: eslint-backend
+	cd frontend/webapp && npm run lint
+
+eslint-backend:
+	cd backend && npm run lint

@@ -1,51 +1,51 @@
-import express from "express";
+import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { generateToken, verifyToken } from "./services/jwt.js";
-import {userService}  from "./services/users.js"
+import { generateToken, verifyToken } from './services/jwt.js';
+import {userService}  from './services/users.js';
 
 const app = express();
 const port = 7007;
 let loginStatus = false;
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 //app.use(bodyParser);
 app.use(cors());
 
 
-app.get("/getToken", (req,res) => {
+app.get('/getToken', (req,res) => {
   res.send({token: generateToken(req?.body?.email)});
-})
-app.get("/hello", verifyToken, (req, resp) => {
+});
+app.get('/hello', verifyToken, (req, resp) => {
   console.log('hello');
-  resp.send({ message: "Hello world" });
+  resp.send({ message: 'Hello world' });
 });
 
-app.post("/api/v1/login", async (req, resp) => {
-  console.log(`inside /v1/api/login`);
+app.post('/api/v1/login', async (req, resp) => {
+  console.log('inside /v1/api/login');
   console.log(`BODY: ${JSON.stringify(req.body)}`);
   const request =  req;
   const email = request?.body?.email;
   const password = request?.body?.password;
   if(email && password && await userService.login(email, password)) {
-      const token = generateToken(email); //token service will generate the token here
-      loginStatus = true;
-      resp.status(200).json({ loginStatus, token });
+    const token = generateToken(email); //token service will generate the token here
+    loginStatus = true;
+    resp.status(200).json({ loginStatus, token });
   }
   else {
-    console.log("failure");
+    console.log('failure');
     resp.status(403).json({ loginStatus, errorMessage: 'Invalid credentials' });
   }
 });
 
-app.get("/api/auth/status", verifyToken, (req, resp) => {
+app.get('/api/auth/status', verifyToken, (req, resp) => {
   console.log(`Authentication status: ${loginStatus}`);
   resp.send({ emailId: req.emailId, loginStatus });   
 });
 
 
-app.get("/api/contacts", verifyToken, (req, resp) =>{
+app.get('/api/contacts', verifyToken, (req, resp) =>{
   console.log('Fetching contacts for : ', JSON.stringify(req.emailId));
   resp.send([
     {
@@ -71,11 +71,11 @@ app.get("/api/contacts", verifyToken, (req, resp) =>{
   ]);
 });
 
-app.get("/api/:name/messages", verifyToken, (req, resp) => {
+app.get('/api/:name/messages', verifyToken, (req, resp) => {
   console.log('Fetching messages for : ', req.params.name);
   if(req.params.name==='Appi') 
     resp.send([{sender: 'Me', message: 'Hi, How are you doing?!'},
-    {sender: 'Appi', message: 'Hello, doing good. WBU?'}])
+      {sender: 'Appi', message: 'Hello, doing good. WBU?'}]);
   else {
     resp.send([{sender: 'Me', message: 'Hi!!!!'}, {sender: 'They', message: 'Bye!!'}]);
   }

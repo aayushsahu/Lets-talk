@@ -15,7 +15,7 @@ const Home = () => {
     });
     if(response.ok)
       return await response.json();
-    throw new Error("Failed to check authentication status");
+    throw new Error('Failed to check authentication status');
   }, [token]); 
 
   const { data: authenticationStatusResponse, isLoading, isError } = useQuery('auth', checkAuthStatus);
@@ -34,7 +34,7 @@ const Home = () => {
     });
     if(response.ok)
       return await response.json(); 
-    throw new Error("Failed to fetch contacts");
+    throw new Error('Failed to fetch contacts');
   }, [token]);
 
   const { data: contactFetchData , isLoading1, isError1 } = useQuery('contacts', contactsFetch);
@@ -48,9 +48,9 @@ const Home = () => {
       <MyNav user={ authenticationStatusResponse.emailId } />
       <div className='card' style={{padding: '1%'}}>
         <div style={{  display: 'flex', flexFlow: 'wrap', flexGrow: '3'}}>
-        {
-          contacts.map((d) => <ChatComponent key={d.name} name={d.name} image={d.image} contact={d.contact}/>)
-        }
+          {
+            contacts.map((d) => <ChatComponent key={d.name} name={d.name} image={d.image} contact={d.contact}/>)
+          }
         </div>
       </div>
     </article>

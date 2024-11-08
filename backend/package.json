@@ -11,7 +11,10 @@
     "dev:server": "npm run build:server:once && npm-run-all --parallel nodemon:prod watch:server",
     "build:server:once": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "watch:server": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch",
-    "nodemon:prod": "cross-env NODE_ENV=development node-dev app.js"
+    "nodemon:prod": "cross-env NODE_ENV=development node-dev app.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
     "@letstalk/db-service": "file:../db-script",
