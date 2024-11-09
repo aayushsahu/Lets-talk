@@ -1,8 +1,6 @@
-
-
 export const login = async () => {
-  return new Promise ({
+  return new Promise({
     status: 'SUCCESS',
-    sessionId: '123',
+    sessionId: '123'
   });
 };

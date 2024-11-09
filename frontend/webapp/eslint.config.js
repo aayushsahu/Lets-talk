@@ -7,11 +7,11 @@ export default [
     files: ['**/*.{js,mjs,cjs,jsx}'],
     rules: {
       'no-unused-vars': [
-        'warn',  
+        'warn',
         {
-          'argsIgnorePattern': '^_',
-          'varsIgnorePattern': '^_',
-          'caughtErrorsIgnorePattern': '^_'
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_'
         }
       ],
       'no-undef': 'warn',
@@ -20,17 +20,22 @@ export default [
       quotes: ['warn', 'single'],
       semi: ['warn', 'always'],
       'react/react-in-jsx-scope': 'off',
-      'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }]
-    }
-  },
-  {
-    languageOptions: { 
-      globals: {
-        ...globals.serviceworker, 
-        ...globals.browser 
+      'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }]
+    },
+    settings: {
+      react: {
+        version: 'detect'
       }
     }
   },
-  // pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser
+      }
+    }
+  },
+
+  pluginReact.configs.flat.recommended
 ];

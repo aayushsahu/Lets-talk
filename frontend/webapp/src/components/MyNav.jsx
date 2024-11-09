@@ -5,28 +5,30 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import PropTypes from 'prop-types';
 
-const MyNav = ({user}) => {
-  return (<Navbar expand="lg" className="bg-body-primary me-auto">
-    <Container>
-      <Navbar.Brand href='/home'>{user.toUpperCase()}</Navbar.Brand>
-      <Navbar.Toggle href='#home'>Toggle</Navbar.Toggle>
-      <Navbar.Collapse href='#home'>
-        <Nav.Link href='#home'>Home</Nav.Link>
-        <Nav.Link href='#link'>Link</Nav.Link>
-        <NavDropdown title='nav-dropdown'>
-          <NavDropdown.Item href='1'>1</NavDropdown.Item>
-          <NavDropdown.Item href='2'>2</NavDropdown.Item>
-          <NavDropdown.Item href='3'>3</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href='logout'>Logout</NavDropdown.Item>
-        </NavDropdown>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>);
+const MyNav = ({ user }) => {
+  return (
+    <Navbar expand="lg" className="bg-body-primary me-auto">
+      <Container>
+        <Navbar.Brand href="/home">{user.toUpperCase()}</Navbar.Brand>
+        <Navbar.Toggle href="#home">Toggle</Navbar.Toggle>
+        <Navbar.Collapse href="#home">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#link">Link</Nav.Link>
+          <NavDropdown title="nav-dropdown">
+            <NavDropdown.Item href="1">1</NavDropdown.Item>
+            <NavDropdown.Item href="2">2</NavDropdown.Item>
+            <NavDropdown.Item href="3">3</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="logout">Logout</NavDropdown.Item>
+          </NavDropdown>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 };
 
 MyNav.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.string
 };
 
 export default MyNav;

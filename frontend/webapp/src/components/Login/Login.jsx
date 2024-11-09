@@ -11,7 +11,8 @@ const Login = () => {
       </div>
 
       <div className="login-container">
-        <LoginFormComponent /* email={email} password={password} submitFn={submitHandler} isLoggingIn={isLoggingIn} handleEmailInput={handleEmailInput} handlePasswordInput={handlePasswordInput} *//>
+        <LoginFormComponent /* email={email} password={password} submitFn={submitHandler} isLoggingIn={isLoggingIn} handleEmailInput={handleEmailInput} handlePasswordInput={handlePasswordInput} */
+        />
       </div>
     </>
   );

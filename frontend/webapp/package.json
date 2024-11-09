@@ -18,7 +18,7 @@
     "react-query": "^3.39.3",
     "react-query-auth": "0.2.0",
     "react-router-dom": "^6.21.1",
-    "react-scripts": "^2.0.3",
+    "react-scripts": "^5.0.1",
     "react-styleguidist": "^13.1.1",
     "source-map-explorer": "^2.5.3",
     "web-vitals": "^2.1.4"
@@ -31,7 +31,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {

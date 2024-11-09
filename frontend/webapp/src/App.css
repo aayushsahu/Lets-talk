@@ -3,7 +3,7 @@ html {
   font-family: monospace;
   /* background: linear-gradient(0deg, rgb(253, 31, 31), rgb(255, 241, 50)); */
   user-select: none;
-  backdrop-filter: blur(10px) saturate(100%)
+  backdrop-filter: blur(10px) saturate(100%);
 }
 
 .topbar {
@@ -76,7 +76,7 @@ html {
   border: 1px solid rgba(22, 22, 22, 0.125);
 }
 
-@keyframes glass{
+@keyframes glass {
   0% {
     backdrop-filter: blur(10px) saturate(100%);
   }
