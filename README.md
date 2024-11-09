@@ -1,4 +1,4 @@
-
+# README
 ## To run POSTGRES in docker
 ![alt text](image.png)
 ```bash
@@ -71,4 +71,18 @@ ESLint is a tool for identifying problematic patterns found in JavaScript
 npx eslint --init # this is easy way
 # OR
 npm install eslint @eslint/js globals --save-dev # here you need to create eslint.config.js file manually
+```
+## Mkdocs
+```bash
+pip install -r requirements.txt
+mkdocs serve
+```
+
+```java
+// Java code to test plugin changes
+class A{
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
 ```

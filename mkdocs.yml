@@ -1,0 +1,76 @@
+site_name: LetsTalk
+site_url: https://letstalk.com
+site_description: This is a Chat app
+site_author: SOLINVICTUS
+
+# Theme configuration
+theme:
+  name: material  # You can use 'readthedocs', 'material', 'bootstrap', etc.
+  custom_dir: mkdocs-dir
+  palette:
+    scheme: default  # Options: default, slate, oak, etc.
+  features:
+    - navigation.tabs
+    - navigation.expand
+    - navigation.top  # Enable top navigation
+    - navigation.tracking
+    - content.code.annotate
+    - content.code.copy
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - User Guide:
+      - Overview: user-guide/overview.md
+      - Configuration: user-guide/configuration.md
+      - Commands: user-guide/commands.md
+  - API Reference: api-reference.md
+  - FAQ: faq.md
+  - About: about.md
+
+# Extra settings
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/username/my-project
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/my_project
+
+# Markdown settings
+markdown_extensions:
+  - toc:
+      permalink: True  # Generate permalinks for headers
+  - admonition  # Enable admonition blocks
+  - codehilite:  # Syntax highlighting for code blocks
+      guess_lang: True
+  - markdown_include.include:
+      base_path: docs
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # - pymdownx.superfence
+
+
+# Additional configuration options
+extra_css:
+  - stylesheets/extra.css  # Custom CSS styles
+extra_js:
+  - javascripts/extra.js  # Custom JavaScript files
+
+# Plugins
+plugins:
+  - search  # Enable search functionality
+  # - mkdocs-git-revision-date-localized-plugin:  # Show last updated date
+  #     type: text
+  #     format: 'YYYY-MM-DD HH:mm:ss'
+
+# Define the directory for documentation files
+docs_dir: docs
