@@ -23,3 +23,6 @@ eslint: eslint-backend
 
 eslint-backend:
 	cd backend && npm run lint
+
+check-pre-commit:
+	bash ./scripts/pre-commit.sh

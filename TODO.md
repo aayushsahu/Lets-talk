@@ -4,7 +4,7 @@ Shortcut for emoji 🌌+.
 Add 
  - ✅ eslint, 
  - ❓ lintstaged, 
- - ❓ husky, 
+ - ✅ husky, 
  - ❓ editor config
 
 - ❓ Add feature of monorepos using learna
