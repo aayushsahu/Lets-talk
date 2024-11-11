@@ -30,12 +30,21 @@
     "styleguide:build": "styleguidist build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "lint-staged:fix": "npx lint-staged --no-stash --concurrent 2",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
     "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
       "react-app"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,css,scss,md,json}": [
+      "npm run lint:fix"
+    ],
+    "src/**": [
+      "npm run format"
     ]
   },
   "browserslist": [
