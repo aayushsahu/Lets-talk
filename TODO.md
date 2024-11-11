@@ -1,10 +1,16 @@
 Shortcut for emoji 🌌+.
 
-## FEAT-002
-Add 
+## FEAT-002/1
+Add below to frontend:
  - ✅ eslint, 
- - ❓ lintstaged, 
+ - ✅ lint-staged, 
  - ✅ husky, 
+ - ❓ editor-config
+
+## FEAT-002/2
+Add below to backend:
+ - ✅ eslint,
+ - ✅ lint-staged, 
  - ❓ editor config
 
 - ❓ Add feature of monorepos using learna
